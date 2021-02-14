@@ -1,14 +1,16 @@
 /**
- * Challenge: Create an advanced function.
- * - Loop through backpackObjectArray to create an article with the class "backpack".
- * - Give the article the ID of the current backpack object.
- * - Set the inner HTML of the article to the existing HTML output provided in const content.
- * - Append each backpack object to the <main> element.
+ * Solution: Add a new element
+ * - In JavaScript, create a new element to hold a navigation menu
+ * - Add an unordered list and a series of no less than five links to the list 
+ * - Use single words like “home”, “about”, etc for the list items and set the src attribute to # for simplicity
+ * - Add the new navigation element to the DOM directly after the header
+ * - Write basic CSS and add classes as necessary to create a horizontal layout for the menu. 
+ * - A tip: Use either display flex or display grid to create the horizontal menu.
  */
-import Backpack from "./components/Backpack.js";
+
+import Backpack from "./Backpack.js";
 
 const everydayPack = new Backpack(
-  "pack01",
   "Everyday Backpack",
   30,
   "grey",
@@ -21,10 +23,11 @@ const everydayPack = new Backpack(
 );
 
 const content = `
+  
     <figure class="backpack__image">
       <img src=${everydayPack.image} alt="" />
     </figure>
-    <h1 class="backpack__name">${everydayPack.name}</h1>
+    <h1 class="backpack__name">Everyday Backpack</h1>
     <ul class="backpack__features">
       <li class="packprop backpack__volume">Volume:<span> ${everydayPack.volume
   }l</span></li>
@@ -37,7 +40,7 @@ const content = `
   } inches</span></li>
       <li class="packprop backpack__strap">Right strap length:<span> ${everydayPack.strapLength.right
   } inches</span></li>
-      <li class="feature backpack__lid">Lid status:<span> ${everydayPack.lidOpen ? "open" : "closed"
+      <li class="packprop backpack__lid">Lid status:<span> ${everydayPack.lidOpen
   }</span></li>
     </ul>
   
@@ -51,3 +54,22 @@ newArticle.setAttribute("id", "everyday");
 newArticle.innerHTML = content;
 
 main.append(newArticle);
+
+/**
+ * Add a navigation section to the DOM
+ */
+const navContent = `
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Backpacks</a></li>
+      <li><a href="#">Other things</a></li>
+      <li><a href="#">Contact</a></li>
+`;
+
+const mainNav = document.createElement("nav");
+mainNav.classList.add("main-navigation");
+const navList = document.createElement("ul");
+navList.innerHTML = navContent;
+mainNav.append(navList);
+
+document.querySelector(".siteheader").append(mainNav);

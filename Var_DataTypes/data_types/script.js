@@ -39,3 +39,4 @@ console.log("Object:", objectDemo);
 // Array:
 const arrayDemo = ["tango", "foxtrot", "waltz", "rumba", "bolero"];
 console.log("Array:", arrayDemo);
+console.log(Object.prototype.toString.call(arrayDemo));

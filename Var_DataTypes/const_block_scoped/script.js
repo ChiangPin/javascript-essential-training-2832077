@@ -1,9 +1,10 @@
 /**
- * The let statement
- * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+ * The const statement
+ * Can change property but cannot REASSIGN the whole constant
+ * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
  */
 
-var color = "purple";
+const color = "purple";
 
 document.querySelector(".left").style.backgroundColor = color;
 document.querySelector(".left .color-value").innerHTML = color;
@@ -11,7 +12,7 @@ document.querySelector(".left .color-value").innerHTML = color;
 color = "skyblue";
 
 function headingColor() {
-  color = "blue";
+  let color = "blue";
   document.querySelector(".title").style.color = color;
 }
 
